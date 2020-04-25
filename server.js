@@ -12,8 +12,6 @@ app.get('/', (request, response) => {
   response.status(200).send('Helllooooooooo') 
 });
 
-app.get('/form.html');
-
 app.get('/sports', (request, response) => {
   response.status(200).send(`I hear you like sports. Your favorite team is the ${request.query.team} and they play ${request.query.sport}.`);
 })
