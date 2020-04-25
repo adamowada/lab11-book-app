@@ -8,11 +8,9 @@ app.use( express.urlencoded({extended:true}));
 app.use( express.static('./public'));
 
 // Routes
-
 app.get('/', (request, response) => {
   response.status(200).send('Helllooooooooo') 
 });
-
 
 app.get('/form.html');
 
@@ -24,7 +22,6 @@ app.post('/player', (request, response) => {
   const res = `${request.body.name}'s Bio Is: ${request.body.bio}`;
   response.status(200).send(res);
 });
-
 
 // Force error
 app.get('/error', () => {
