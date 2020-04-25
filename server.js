@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.use( express.urlencoded({extended:true}));
 app.use( express.static('./public'));
+app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', (request, response) => {
@@ -13,12 +14,19 @@ app.get('/', (request, response) => {
 });
 
 app.get('/sports', (request, response) => {
-  response.status(200).send(`I hear you like sports. Your favorite team is the ${request.query.team} and they play ${request.query.sport}.`);
+  const data = {
+    name: request.query.team,
+    sport: request.query.sport,
+    numbers: [request.query.numberOne, request.query.numberTwo],
+    players: ['Russell', 'Greg'],
+  };
+
+  response.status(200).render('sports.ejs', {sports:data});
 })
 
+
 app.post('/player', (request, response) => {
-  const res = `${request.body.name}'s Bio Is: ${request.body.bio}`;
-  response.status(200).send(res);
+  response.status(200).render('player', {player:request.body.bio});
 });
 
 // Force error
