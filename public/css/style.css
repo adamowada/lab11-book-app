@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: navy;
+  color: lightblue;
+  line-height: 150px;
+  text-align: center;
+}
+
+footer {
+  background: gray;
+  color: ivory;
+  height: 100%;
+  line-height:  100px;
+  text-align:  center;
+}
+
+main {
+  background: white;
+  flex: 1;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 55px;
+}
