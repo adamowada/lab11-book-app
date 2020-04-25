@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Team</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Team</h1>
+  </header>  
+<main>
+  <div>Team Name: <%= sports.name %></div>
+  <div>Sport They Play: <%= sports.sport %></div>
+  <ul>
+    <% sports.players.forEach( person => { %>
+      <li> <%= person %> </li>
+    <% }) %>
+    <!-- <% for (let i = 0; i < sports.players.length; i++) { %>
+      <li> <%= players[i] numberss[i] %> </li>
+    <% } %> -->
+  </ul>
+</main>
+<footer>
+  &copy; 2020 Adam and Brenden
+</footer>
+</body>
+</html>
