@@ -14,19 +14,13 @@
   </header>
   
   <main>
-    <form action="/sports" method="get">
-      <input name="team" placeholder="Favorite team goes here" />
-      <input name="sport" placeholder="What kind of sport do they play?" />
-      <input name="numberOne" placeholder="What's Russell's number?" />
-      <input name="numberTwo" placeholder="What's Greg's number?" />
-      <button type="submit">Submit to the server</button>
-    </form>
-
-    <form action="/player" method="post">
-      <p>What's your favorite player's bio?</p>
-      <textarea name="bio"></textarea>
-      <button type="submit">Save their bio</button>
-    </form>
+    <ul>
+        <% books.forEach( book => { %>
+        <li>
+            <%= book.title %>
+        </li>
+        <% }) %>
+    </ul>
   </main>
 
   <footer>
