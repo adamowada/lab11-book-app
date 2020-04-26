@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', (request, response) => {
-  response.status(200).send('Helllooooooooo') 
+  response.status(200).render('pages/searches/new.ejs');
 });
 
 app.get('/sports', (request, response) => {
@@ -23,6 +23,16 @@ app.get('/sports', (request, response) => {
 
   response.status(200).render('sports.ejs', {sports:data});
 })
+
+// new.ejs
+app.get('/searches', (request, response) => {
+
+})
+
+// search form 
+app.get('/searchForm', (request, response) => {
+  response.status(200).render('pages/search-form');
+});
 
 
 app.post('/player', (request, response) => {
