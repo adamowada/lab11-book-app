@@ -2,9 +2,10 @@
 
 require('dotenv').config();
 const express = require('express');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 const app = express();
-app.use( express.urlencoded({extended:true}));
+const superagent = require('superagent');
+app.use( express.urlencoded({extended:true,}));
 app.use( express.static('./public'));
 app.set('view engine', 'ejs');
 
@@ -13,31 +14,30 @@ app.get('/', (request, response) => {
   response.status(200).render('pages/searches/new.ejs');
 });
 
-app.get('/sports', (request, response) => {
-  const data = {
-    name: request.query.team,
-    sport: request.query.sport,
-    numbers: [request.query.numberOne, request.query.numberTwo],
-    players: ['Russell', 'Greg'],
-  };
-
-  response.status(200).render('sports.ejs', {sports:data});
-})
-
 // new.ejs
-app.get('/searches', (request, response) => {
+app.post('/search', (request, response) => {
+  const url = process.env.GOOGLEURL;
+  let queryObj = {
+    q: `${request.body.searchby}: ${request.body.search}`,
+  };
+  superagent.get(url)
+    .query(queryObj)
+    .then(results => {
+      let books = results.body.items.map(book => new Book(book));
+      response.status(200).render('pages/index.ejs', {books:books,});
+    });
+});
 
-})
+function Book(data) {
+  this.title = data.volumeInfo.title;
+}
 
-// search form 
+// search form
 app.get('/searchForm', (request, response) => {
   response.status(200).render('pages/search-form');
 });
 
 
-app.post('/player', (request, response) => {
-  response.status(200).render('player', {player:request.body.bio});
-});
 
 // Force error
 app.get('/error', () => {
@@ -48,13 +48,13 @@ app.get('/error', () => {
 app.use('*', (request, response) => {
   console.log(request);
   response.status(404).send('Sorry, can\'t find', request.pathname);
-})
+});
 
 // Error handler
 app.use( (error, request, response) => {
   console.log(error);
   response.status(500).send(error.message);
-})
+});
 
 // Start Server
 function startServer() {
