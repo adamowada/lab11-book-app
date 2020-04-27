@@ -45,10 +45,10 @@ app.get('/error', () => {
 });
 
 // 404
-app.use('*', (request, response) => {
-  console.log(request);
-  response.status(404).send('Sorry, can\'t find', request.pathname);
-});
+// app.use('*', (request, response) => {
+//   console.log(request);
+//   response.status(404).send('Sorry, can\'t find', request.pathname);
+// });
 
 // Error handler
 app.use( (error, request, response) => {
