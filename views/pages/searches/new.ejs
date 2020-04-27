@@ -4,29 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Book</title>
+    <script src="https://kit.fontawesome.com/f4021c5793.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header>
-        <h1>Search for Some Books</h1>
+        <div id="headerIcon">
+            <h1>Best Books!</h1>
+            <i class="fas fa-bars fa-2x"></i>
+        </div>
+        <footer id="titleFoot">
+            <h3>Search by Title or Author</h3>
+        </footer>
     </header>
     <main>
         <form action="/search" method="POST">
             <div>
-                <input type="text" name='search' placeholder="Search Terms">
+                <input type="text" name='search' placeholder="Enter Title or Author">
             </div>
-            <div>
+            <div id="radios">
                 <label>
-                    <input type='radio' name='searchby' value='inauthor'>
-                    Search By Author
+                    Author
+                    <input id="author" type='radio' name='searchby' value='inauthor'>
                 </label>
                 <label>
-                    <input type='radio' name='searchby' value='intitle'>
-                    Search By Title
+                    Title
+                    <input id="title" type='radio' name='searchby' value='intitle'>
                 </label>
             </div>
-            <button type="submit">Proceed!</button>
+            <button type="submit">Search The Google Books API</button>
 
         </form>
     </main>
+    <footer id="circles">
+        <div>t</div>
+        <div>e</div>
+        <div>s</div>
+        <div>t</div>
+    </footer>
 </body>
 </html>
