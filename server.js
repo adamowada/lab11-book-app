@@ -16,7 +16,7 @@ app.get('/', (request, response) => {
 
 // new.ejs
 app.post('/search', (request, response) => {
-  const url = process.env.GOOGLEURL;
+  const url = 'https://www.googleapis.com/books/v1/volumes';
   let queryObj = {
     q: `${request.body.searchby}: ${request.body.search}`,
   };
