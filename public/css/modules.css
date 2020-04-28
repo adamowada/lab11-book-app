@@ -1,0 +1,53 @@
+
+@media only screen and (max-width:768px) {
+
+
+h1 {
+    margin-left: 3%;
+    color: ivory;
+    font-size: 1.5rem;
+    
+    }
+    header {
+        line-height: 75px;
+      }
+    #titleFoot {
+        background: rgb(78, 76, 76);
+        color: ivory;
+        height: 100%;
+        line-height:  53px;
+        text-align:  center;
+      }
+      i {
+          color: ivory;
+          margin: 4% 5%;
+          
+      }
+      #headerIcon{
+          display: flex;
+          justify-content: space-between;
+      }
+      button {
+          background-color: black;
+          color: ivory;
+          border: none; 
+          line-height: 50px;
+      }
+
+      #circles {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin: 0px 20px;
+      }
+      #circles div {
+          width: 20px;
+          background: rgb(78, 76, 76);
+          border-radius: 50%;
+          line-height:20px;
+          margin-top: 15px;
+          color: transparent;
+      }
+      
+      
+}

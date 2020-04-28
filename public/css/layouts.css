@@ -1,0 +1,12 @@
+@media only screen and (max-width:768px) {
+    main {
+        background: rgb(160, 158, 158);
+        padding-bottom: 480px;
+
+      }
+      #radios {
+          display: flex;
+          flex-direction: column;
+      }
+}
+

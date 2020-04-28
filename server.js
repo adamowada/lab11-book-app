@@ -16,7 +16,7 @@ app.get('/', (request, response) => {
 
 // new.ejs
 app.post('/search', (request, response) => {
-  const url = process.env.GOOGLEURL;
+  const url = 'https://www.googleapis.com/books/v1/volumes';
   let queryObj = {
     q: `${request.body.searchby}: ${request.body.search}`,
   };
@@ -45,10 +45,10 @@ app.get('/error', () => {
 });
 
 // 404
-app.use('*', (request, response) => {
-  console.log(request);
-  response.status(404).send('Sorry, can\'t find', request.pathname);
-});
+// app.use('*', (request, response) => {
+//   console.log(request);
+//   response.status(404).send('Sorry, can\'t find', request.pathname);
+// });
 
 // Error handler
 app.use( (error, request, response) => {
