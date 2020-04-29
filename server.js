@@ -24,7 +24,7 @@ app.post('/search', (request, response) => {
     .query(queryObj)
     .then(results => {
       let books = results.body.items.map(book => new Book(book));
-      response.status(200).render('pages/index.ejs', {books:books,});
+      response.status(200).render('pages/index.ejs', {books});
     });
 });
 
@@ -32,8 +32,9 @@ function Book(data) {
   const imagePlaceholder = 'https://i.imgur.com/J5LVHEL.jpg';
   this.title = data.volumeInfo.title;
   this.author = data.volumeInfo.authors;
-  this.description = data.volumeInfo.description;
-  this.image = data.volumeInfo.imageLinks.thumbnail;
+  this.description = data.volumeInfo.description ? data.volumeInfo.description : 'Read the book to find out.';
+  this.image = data.volumeInfo.imageLinks ? data.volumeInfo.imageLinks.thumbnail : imagePlaceholder;
+  this.amount = data.saleInfo.listPrice ? data.saleInfo.listPrice.amount : ' Unknown.';
 }
 
 // search form

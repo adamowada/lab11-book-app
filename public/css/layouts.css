@@ -1,3 +1,38 @@
+main {
+  background: rgb(160, 158, 158);
+  padding-top:40px;
+  padding-bottom: 480px;
+  text-align: center;
+}
+
+form {
+  padding-top: 3rem;
+  display: block;
+  width: 100%;
+  margin: auto;
+}
+
+#radios {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+ul {
+  padding-left: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+li {
+  margin: 10px 0px;
+  padding-top: 10px;
+}
+img {
+  margin-bottom:10px;
+}
+
+
 @media only screen and (max-width:768px) {
     main {
         background: rgb(160, 158, 158);
