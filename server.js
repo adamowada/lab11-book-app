@@ -29,7 +29,11 @@ app.post('/search', (request, response) => {
 });
 
 function Book(data) {
+  const imagePlaceholder = 'https://i.imgur.com/J5LVHEL.jpg';
   this.title = data.volumeInfo.title;
+  this.author = data.volumeInfo.authors;
+  this.description = data.volumeInfo.description;
+  this.image = data.volumeInfo.imageLinks.thumbnail;
 }
 
 // search form

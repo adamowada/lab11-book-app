@@ -16,15 +16,30 @@
   <main>
     <ul>
         <% books.forEach( book => { %>
-        <li>
+        <li id="card">
+          <img height="270px" width="200px" src=" <%= book.image %>" alt="">
+          <h3>
             <%= book.title %>
+          </h3> 
+          <p>
+            <%= book.author %>
+          </p> 
+          <p>
+            <%= book.description %>
+          </p>
         </li>
         <% }) %>
     </ul>
   </main>
-
-  <footer>
-    &copy; 2020 Adam Owada
+  
+  <footer><p>&copy; 2020 Adam Owada & Brendon Hampton</p></footer>
+  <footer id="circles">
+    
+        <div>t</div>
+        <div>e</div>
+        <div>s</div>
+        <div>t</div>
+    
   </footer>
 
   <script src="/js/app.js"></script>
