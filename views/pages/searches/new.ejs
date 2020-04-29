@@ -20,16 +20,16 @@
     <main>
         <form action="/search" method="POST">
             <div>
-                <input type="text" name='search' placeholder="Enter Title or Author">
+                <input id="searchInput" type="text" name='search' placeholder="Enter Title or Author">
             </div>
             <div id="radios">
                 <label>
-                    Author
-                    <input id="author" type='radio' name='searchby' value='inauthor'>
-                </label>
-                <label>
                     Title
                     <input id="title" type='radio' name='searchby' value='intitle'>
+                </label>
+                <label>
+                    Author
+                    <input id="author" type='radio' name='searchby' value='inauthor'>
                 </label>
             </div>
             <button type="submit">Search The Google Books API</button>
