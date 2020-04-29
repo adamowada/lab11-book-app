@@ -1,7 +1,8 @@
 @media only screen and (max-width:768px) {
 
-    form {
+    main form {
         max-width: 360px;
+        padding-right: 5%;
     }
     body{
         background-color: black;
