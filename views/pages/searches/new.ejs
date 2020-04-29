@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%- include('../../partials/head.ejs') %>
+
     <title>Find Book</title>
-    <script src="https://kit.fontawesome.com/f4021c5793.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header>
-        <div id="headerIcon">
-            <h1>Best Books!</h1>
-            <i class="fas fa-bars fa-2x"></i>
-        </div>
-        <footer id="titleFoot">
-            <h3>Search by Title or Author</h3>
-        </footer>
     </header>
     <main>
+        <div id="headerIcon">
+          <h1>Best Books!</h1>
+            <i class="fas fa-bars fa-2x"></i>
+          </div>
+        <div id="titleFoot">
+          <h3>Search by Title or Author</h3>
+        </div>
         <form action="/search" method="POST">
             <div>
                 <input id="searchInput" type="text" name='search' placeholder="Enter Title or Author">
@@ -42,5 +41,6 @@
         <div>s</div>
         <div>t</div>
     </footer>
+    <%- include('../../partials/script.ejs') %>
 </body>
 </html>

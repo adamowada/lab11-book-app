@@ -1,3 +1,43 @@
+form {
+  max-width: 700px;
+}
+body{
+  background-color: black;
+  font-family: monospace;
+}
+
+#card {
+  border: 5px outset silver;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 10px 10px rgba(29, 28, 28, 0.533);
+  font-size: larger;
+  word-spacing: 3px;
+  line-height: 1.5rem;
+  padding: 1rem;
+}
+
+div label, input, button {
+  border-radius: 5px;
+}
+footer p {
+  color: ivory;
+  text-align: center;
+}
+li {
+  /* overflow: scroll; */
+  max-height: 100%;
+}
+
+img {
+  border: 5px outset lightgreen;
+}
+
+input[type="radio"]:checked {
+  box-shadow: 0 0 0 2px lightgreen;
+  border-radius: 50%;
+}
+
 @media only screen and (max-width:768px) {
 
     main form {
@@ -34,5 +74,5 @@
         border: .5px solid black;
     }
 
- }
+}
 
