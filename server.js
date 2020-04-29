@@ -48,16 +48,14 @@ app.get('/error', () => {
   throw new Error('shit broke');
 });
 
-// 404
-// app.use('*', (request, response) => {
-//   console.log(request);
-//   response.status(404).send('Sorry, can\'t find', request.pathname);
-// });
+// 404 Not Found
+app.use('*', (request, response) => {
+  response.status(404).render('pages/404');
+});
 
-// Error handler
-app.use( (error, request, response) => {
-  console.log(error);
-  response.status(500).send(error.message);
+// 500 Error handler
+app.use( (error, request, response, next ) => {
+  response.status(500).render('pages/500', {error});
 });
 
 // Start Server
