@@ -5,6 +5,9 @@ const express = require('express');
 const PORT = process.env.PORT;
 const app = express();
 const superagent = require('superagent');
+const pg = require('pg');
+const client = new pg.Client(process.env.DATABASE_URL);  //add heroku database url 
+
 app.use( express.urlencoded({extended:true,}));
 app.use( express.static('./public'));
 app.set('view engine', 'ejs');
@@ -64,4 +67,10 @@ function startServer() {
   app.listen( PORT, () => console.log('Server running on', PORT));
 }
 
-startServer();
+
+client.connect()
+  .then( () => {
+    startServer();
+  })
+  .catch( error => console.error(error.message));
+
