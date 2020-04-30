@@ -27,7 +27,7 @@ app.post('/search', (request, response) => {
     .query(queryObj)
     .then(results => {
       let books = results.body.items.map(book => new Book(book));
-      response.status(200).render('pages/index.ejs', {books});
+      response.status(200).render('pages/searches/show.ejs', {books});
     });
 });
 
@@ -68,9 +68,9 @@ function startServer() {
 }
 
 
-client.connect()
-  .then( () => {
-    startServer();
-  })
-  .catch( error => console.error(error.message));
-
+// client.connect()
+//   .then( () => {
+//   })
+//   .catch( error => console.error(error.message));
+  
+startServer();
