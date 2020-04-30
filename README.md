@@ -4,4 +4,5 @@ Lab 11 - Book App
 
 ### task feature
 
-1. setup server proof of life
+<!-- show.ejs should be what the index.ejs is displaying (the stuff displayed after the search is done)  -->
+<!-- the index.ejs should show the books added to the database -->
