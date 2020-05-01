@@ -8,4 +8,6 @@ CREATE TABLE books (
     image_url VARCHAR(255),
     _description VARCHAR(255),
     bookshelf VARCHAR(255),
+    amount VARCHAR(255)
 )
+
