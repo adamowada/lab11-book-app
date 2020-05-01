@@ -65,6 +65,11 @@
         text-shadow: 1px 1px lightgreen;
         font-size: larger;
     }
+    a {
+        font-size: 3rem;
+        display: inline-flex;
+        
+    }
 
   i {
     color: transparent;
@@ -137,7 +142,5 @@
           padding-left: 5px;
           font-weight: bolder;
       }
-
-      
       
 }

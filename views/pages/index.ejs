@@ -1,48 +1,47 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <%- include('../partials/head.ejs') %>
-  <title>Book Search Results</title>
-</head>
 
+    <%- include('../partials/head.ejs') %>
+
+    <title>Saved Books</title>
+</head>
 <body>
-  <header>
-    <h1>Book Results</h1>
-  </header>
-  
-  <main>
-    <ul>
-        <% books.forEach( book => { %>
-        <li id="card">
-          <img height="270px" width="200px" src=" <%= book.image %>" alt="">
-          <h3>
-            <%= book.title %>
-          </h3> 
-          <p>
-            <%= book.author %>
-          </p> 
-          <p>
-            <%= book.description %>
-          </p>
-          <p>
-            $<%= book.amount %>
-          </p>
-          <button id="addbook">Add Book</button>
-        </li>
-        <% }) %>
-    </ul>
-  </main>
-  
-  <footer><p>&copy; 2020 Adam Owada & Brendon Hampton</p></footer>
-  <footer id="circles">
-    
+    <header>
+        <nav id="navbar">
+            <a href="#">Saved Books</a>
+            <a href="/newsearch">Search</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+    <main>
+        <ul>
+            <% books.forEach( book => { %>
+            <li id="card">
+              <img height="270px" width="200px" src=" <%= book.image %>" alt="">
+              <h3>
+                <%= book.title %>
+              </h3> 
+              <p>
+                <%= book.author %>
+              </p> 
+              <p>
+                <%= book.description %>
+              </p>
+              <p>
+                $<%= book.amount %>
+              </p>
+              <button id="deleteBook">Delete Book</button>
+            </li>
+            <% }) %>
+        </ul>
+    </main>
+    <footer id="circles">
         <div>t</div>
         <div>e</div>
         <div>s</div>
         <div>t</div>
-    
-  </footer>
-
-  <%- include('../partials/script.ejs') %>
+    </footer>
+    <%- include('../partials/script.ejs') %>
 </body>
-</html> -->
+</html>
