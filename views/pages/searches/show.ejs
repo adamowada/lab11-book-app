@@ -27,7 +27,9 @@
           <p>
             $<%= book.amount %>
           </p>
-          <button id="addbook">Add Book</button>
+          <form action="/add" method="POST">
+          <button type="submit" id="addbook">Add Book</button>
+          </form>
         </li>
         <% }) %>
     </ul>
