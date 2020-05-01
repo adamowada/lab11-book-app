@@ -8,9 +8,10 @@ body{
 
 #card {
   border: 5px outset silver;
+  border-radius: 2%;
   max-width: 600px;
   text-align: center;
-  box-shadow: 10px 10px rgba(29, 28, 28, 0.533);
+  box-shadow: 10px 10px 10px rgba(29, 28, 28, 0.533);
   font-size: larger;
   word-spacing: 3px;
   line-height: 1.5rem;
@@ -40,8 +41,9 @@ input[type="radio"]:checked {
 
 @media only screen and (max-width:768px) {
 
-    form {
+    main form {
         max-width: 360px;
+        padding-right: 5%;
     }
     body{
         background-color: black;

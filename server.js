@@ -5,6 +5,9 @@ const express = require('express');
 const PORT = process.env.PORT;
 const app = express();
 const superagent = require('superagent');
+const pg = require('pg');
+const client = new pg.Client(process.env.DATABASE_URL);  //add heroku database url 
+
 app.use( express.urlencoded({extended:true,}));
 app.use( express.static('./public'));
 app.set('view engine', 'ejs');
@@ -24,7 +27,7 @@ app.post('/search', (request, response) => {
     .query(queryObj)
     .then(results => {
       let books = results.body.items.map(book => new Book(book));
-      response.status(200).render('pages/index.ejs', {books});
+      response.status(200).render('pages/searches/show.ejs', {books});
     });
 });
 
@@ -64,4 +67,10 @@ function startServer() {
   app.listen( PORT, () => console.log('Server running on', PORT));
 }
 
+
+// client.connect()
+//   .then( () => {
+//   })
+//   .catch( error => console.error(error.message));
+  
 startServer();
