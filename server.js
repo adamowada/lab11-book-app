@@ -52,7 +52,6 @@ app.get('/', (request, response) => {
   const SQL = 'SELECT * FROM books';
   client.query(SQL)
     .then (results => {
-      console.log(results);
       response.status(200).render('pages/index.ejs', {books:results.rows,});
     })
     .catch ( error => {
@@ -62,6 +61,7 @@ app.get('/', (request, response) => {
 
 // add new book
 app.post('/add', (request, response) => {
+  console.log(request.body);
   const SQL = `
     INSERT INTO books (author, title, isbn, image_url, _description, bookshelf)
     VALUES ($1, $2, $3, $4, $5, $6)

@@ -13,24 +13,29 @@
   <main>
     <ul>
         <% books.forEach( book => { %>
+        <form action="/add" method="POST">
         <li id="card">
           <img height="270px" width="200px" src=" <%= book.image %>" alt="">
-          <h3>
+          <input type="hidden" name="image_url" id="" value="<%= book.image %>">
+          <h3></h3>
             <%= book.title %>
+          <input type="hidden" name="title" id="" value="<%= book.title %>">
           </h3> 
           <p>
             <%= book.author %>
+            <input type="hidden" name="author" id="" value="<%= book.author %>">
           </p> 
           <p>
             <%= book.description %>
+            <input type="hidden" name="_description" id="" value="<%= book.description %>">
           </p>
           <p>
             $<%= book.amount %>
+            <input type="hidden" name="amount" id="" value="<%= book.amount %>">
           </p>
-          <form action="/add" method="POST">
           <button type="submit" id="addbook">Add Book</button>
-          </form>
         </li>
+        </form>
         <% }) %>
     </ul>
   </main>
