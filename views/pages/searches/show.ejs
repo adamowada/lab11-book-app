@@ -28,8 +28,16 @@
             <input type="hidden" name="author" id="" value="<%= book.author %>">
           </p> 
           <p>
+            <%= book.isbn %>
+            <input type="hidden" name="isbn" id="" value="<%= book.isbn %>">
+          </p>
+          <p>
             <%= book.description %>
             <input type="hidden" name="_description" id="" value="<%= book.description %>">
+          </p>
+          <p>
+            <%= book.bookshelf %>
+            <input type="hidden" name="bookshelf" id="" value="<%= book.bookshelf %>">
           </p>
           <p>
             $<%= book.amount %>

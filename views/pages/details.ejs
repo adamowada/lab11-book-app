@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include('../partials/head.ejs') %>
+
+    <title>Saved Books</title>
+</head>
+<body>
+  <%- include('../partials/header.ejs') %>
+    <main>
+      <h1>Details</h1>
+           
+            <section id="card">
+              <img height="270px" width="200px" src=" <%= books.image_url %>" alt="">
+              <h3>
+                <%= books.title %>
+              </h3> 
+              <p>
+                <%= books.author %>
+              </p> 
+              <p>
+                <%= books._description %>
+              </p>
+              <p>
+                $<%= books.amount %>
+              </p>
+              
+              <form action="/update/<%= books.id %>" name="" method="POST">
+                <span>Author</span>
+                <input type="text" placeholder="<%= books.author %>" name="author" id="">
+                <span>Title</span>
+                <input type="text" placeholder="<%= books.title %>" name="title" id="">
+                <span>ISBN</span>
+                <input type="text" placeholder="<%= books.isbn %>" name="isbn" id="">
+                <span>Image-URL</span>
+                <input type="text" placeholder="<%= books.image_url %>" name="image_url" id="">
+                <span>Description</span>
+                <input type="text" placeholder="<%= books._description %>" name="_description" id="">
+                <span>Book Shelf</span>
+                <input type="text" placeholder="<%= books.bookshelf %>" name="bookshelf" id="">
+                <span>Price</span>
+                <input type="text" placeholder="<%= books.amount %>" name="amount" id="">
+                <input type="hidden" name="id" value="<%= books.id %>">
+                <button>Save Updated Book</button>
+
+              </form>
+            </section>
+    </main>
+    <footer id="circles">
+        <div>t</div>
+        <div>e</div>
+        <div>s</div>
+        <div>t</div>
+    </footer>
+    <%- include('../partials/script.ejs') %>
+</body>
+</html>
