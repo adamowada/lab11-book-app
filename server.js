@@ -59,12 +59,12 @@ app.get('/', (request, response) => {
     });
 });
 
-// add new book
+// add new book to database
 app.post('/add', (request, response) => {
   console.log(request.body);
   const SQL = `
-    INSERT INTO books (author, title, isbn, image_url, _description, bookshelf)
-    VALUES ($1, $2, $3, $4, $5, $6)
+    INSERT INTO books (author, title, isbn, image_url, _description, bookshelf, amount)
+    VALUES ($1, $2, $3, $4, $5, $6, $7)
   `;
   const VALUES = [
     request.body.author,
@@ -72,9 +72,22 @@ app.post('/add', (request, response) => {
     request.body.isbn,
     request.body.image_url,
     request.body._description,
-    request.body.bookshelf
+    request.body.bookshelf,
+    request.body.amount
   ];
   client.query(SQL, VALUES)
+    .then( () => {
+      response.status(200).redirect('/');
+    })
+    .catch( error => {
+      console.error(error.message);
+    });
+});
+
+// delete book from database
+app.post('/delete',(request,response) => {
+  const SQL = 'DELETE FROM books WHERE id=$1';
+  client.query(SQL)
     .then( () => {
       response.status(200).redirect('/');
     })

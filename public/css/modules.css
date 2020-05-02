@@ -67,13 +67,17 @@
     }
     a {
         font-size: 3rem;
-        display: inline-flex;
+        /* display: inline-flex; */
+        text-decoration: none;
+        color: ivory;
+        margin-left: 2rem;
         
     }
+    .dropbtn {
+        display: none;
+    }
 
-  i {
-    color: transparent;
-  }
+  
 @media only screen and (max-width:768px) {
     h1 {
     margin-left: 3%;
@@ -91,17 +95,12 @@
         line-height:  53px;
         text-align:  center;
       }
-      i {
-          color: ivory;
-          margin: 4% 5%;
-          
-      }
       #headerIcon{
           display: flex;
           justify-content: space-between;
       }
       button {
-          background-color: black;
+          background-color:lightgreen;
           color: ivory;
           border: none; 
           line-height: 60px;
@@ -142,5 +141,56 @@
           padding-left: 5px;
           font-weight: bolder;
       }
+      
+
+      /* w3 schools button dropdown */
+      .dropbtn {
+          display: flex;
+        background-color: rgba(177, 185, 177, 0.384);
+        color: white;
+        padding: 16px;
+        font-size: 10px;
+        border: none;
+        cursor: pointer;
+        line-height: 1rem;
+        margin-left: 10px;
+      }
+      
+      .dropdown {
+        /* position: relative; */
+        display: inline-block;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color:rgba(222, 228, 226, 0.664);
+        /* min-width: 160px; */
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      
+      .dropdown-content a {
+        color: black;
+        /* padding: 1rem 1rem; */
+        text-decoration: none;
+        display: block;
+      }
+      
+      .dropdown-content a:hover {background-color: #f1f1f1}
+      
+      .dropdown:hover .dropdown-content {
+        display: inline-flex;
+      }
+      
+      .dropdown:hover .dropbtn {
+        background-color: lightgreen;
+      }
+
+      a {
+          font-size: smaller;
+      }
+
+
       
 }
