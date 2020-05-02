@@ -6,11 +6,13 @@
 </head>
 
 <body>
-  <header>
-    <h1>Book Results</h1>
-  </header>
+  <%- include('../../partials/header.ejs') %>
+
+    
+  
   
   <main>
+    <h1>Book Results</h1>
     <ul>
         <% books.forEach( book => { %>
         <form action="/add" method="POST">
