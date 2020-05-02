@@ -7,18 +7,13 @@
     <title>Saved Books</title>
 </head>
 <body>
-    <header>
-        <nav id="navbar">
-            <a href="#">Saved Books</a>
-            <a href="/newsearch">Search</a>
-            <a href="#">About</a>
-        </nav>
-    </header>
+  <%- include('../partials/header.ejs') %>
     <main>
+      <h1>Saved Books</h1>
         <ul>
             <% books.forEach( book => { %>
             <li id="card">
-              <img height="270px" width="200px" src=" <%= book.image %>" alt="">
+              <img height="270px" width="200px" src=" <%= book.image_url %>" alt="">
               <h3>
                 <%= book.title %>
               </h3> 
@@ -26,12 +21,14 @@
                 <%= book.author %>
               </p> 
               <p>
-                <%= book.description %>
+                <%= book._description %>
               </p>
               <p>
                 $<%= book.amount %>
               </p>
+              <form action="delete" method="POST">
               <button id="deleteBook">Delete Book</button>
+              </form>
             </li>
             <% }) %>
         </ul>
