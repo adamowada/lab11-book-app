@@ -42,8 +42,10 @@ function Book(data) {
   const imagePlaceholder = 'https://i.imgur.com/J5LVHEL.jpg';
   this.title = data.volumeInfo.title;
   this.author = data.volumeInfo.authors;
+  this.isbn = data.volumeInfo.industryIdentifiers[0].identifier;
   this.description = data.volumeInfo.description ? data.volumeInfo.description : 'Read the book to find out.';
   this.image = data.volumeInfo.imageLinks ? data.volumeInfo.imageLinks.thumbnail : imagePlaceholder;
+  this.bookshelf = 'default';
   this.amount = data.saleInfo.listPrice ? data.saleInfo.listPrice.amount : ' Unknown.';
 }
 
@@ -61,7 +63,6 @@ app.get('/', (request, response) => {
 
 // add new book to database
 app.post('/add', (request, response) => {
-  console.log(request.body);
   const SQL = `
     INSERT INTO books (author, title, isbn, image_url, _description, bookshelf, amount)
     VALUES ($1, $2, $3, $4, $5, $6, $7)
@@ -85,11 +86,40 @@ app.post('/add', (request, response) => {
 });
 
 // delete book from database
-app.post('/delete',(request,response) => {
+app.post('/delete/:id',(request,response) => {
+  let id = request.body.id;
   const SQL = 'DELETE FROM books WHERE id=$1';
-  client.query(SQL)
+  let VALUES = [id];
+  console.log(request.body.id);
+  client.query(SQL, VALUES)
     .then( () => {
       response.status(200).redirect('/');
+    })
+    .catch( error => {
+      console.error(error.message);
+    });
+});
+
+// Update book
+app.post('/update/:id',(request,response) => {
+  let id = request.body.id;
+  console.log(request.body);
+  const SQL = `
+  UPDATE books SET (author, title, isbn, image_url, _description, bookshelf, amount)
+  VALUES ($1, $2, $3, $4, $5, $6, $7)
+`;
+  const VALUES = [
+    request.body.author,
+    request.body.title,
+    request.body.isbn,
+    request.body.image_url,
+    request.body._description,
+    request.body.bookshelf,
+    request.body.amount
+  ];
+  client.query(SQL, VALUES)
+    .then( (results) => {
+      response.status(200).redirect(`/details/${id}`, {books:results.rows,} );
     })
     .catch( error => {
       console.error(error.message);
