@@ -190,7 +190,8 @@
       a {
           font-size: smaller;
       }
+}
 
-
-      
+#update-book {
+  display: none;
 }

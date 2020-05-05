@@ -1,3 +1,8 @@
 'use strict';
 
-console.log('it works');
+$('#update').on('click', showForm);
+
+function showForm() {
+  $('#update').hide();
+  $('#update-book').fadeIn();
+}
