@@ -1,4 +1,4 @@
-
+'use strict';
 
 require('dotenv').config();
 const express = require('express');
@@ -105,9 +105,7 @@ app.post('/delete/:id',(request,response) => {
 // Update book
 
 app.put('/update-book/:id', (request, response) => {
-  // const id = request.body.id;
-  console.log('The update form request.body is', request.body);
-  const SQL = 'UPDATE books SET author=$1, title=$2, isbn=$3, image_url=$4, _description=$5, bookshelf=$6, amount=$7 WHERE id=$8';
+  const SQL = 'UPDATE books SET author = $1, title = $2, isbn = $3, image_url = $4, _description = $5, bookshelf = $6, amount = $7 WHERE id = $8';
   const VALUES = [
     request.body.author,
     request.body.title,
@@ -146,7 +144,6 @@ app.use( (error, request, response, next ) => {
 function startServer(PORT) {
   app.listen( PORT, () => console.log('Books app Server running on', PORT));
 }
-
 
 client.connect()
   .then( () => {
