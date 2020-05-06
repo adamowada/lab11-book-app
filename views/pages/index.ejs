@@ -12,7 +12,7 @@
       <h1>Saved Books</h1>
         <ul>
             <% books.forEach( book => { %>
-            <li id="card">
+            <li class="card">
               <img height="270px" width="200px" src=" <%= book.image_url %>" alt="">
               <h3>
                 <%= book.title %>
@@ -37,9 +37,9 @@
                 <button>Delete Book</button>
               </form>
               
-              <button id="update">Update Book</button>
+              <button class="update">Update Book</button>
 
-              <form id="update-book-form" method="post" action="/update-book/<%= book.id %>?_method=put">
+              <form class="update-book-form" method="post" action="/update-book/<%= book.id %>?_method=put">
                 <label>
                   <p>Title:</p>
                   <input name="title" value="<%= book.title %>" />
