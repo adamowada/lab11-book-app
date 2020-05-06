@@ -42,34 +42,35 @@
               <form class="update-book-form" method="post" action="/update-book/<%= book.id %>?_method=put">
                 <label>
                   <p>Title:</p>
-                  <input name="title" value="<%= book.title %>" />
+                  <input name="title" class="textInput" value="<%= book.title %>" />
                 </label>
                 <label>
                   <p>Author:</p>
-                  <input name="author" value="<%= book.author %>" />
+                  <input name="author" class="textInput" value="<%= book.author %>" />
                 </label>
                 <label>
                   <p>ISBN:</p>
-                  <input name="isbn" value="<%= book.isbn %>" />
+                  <input name="isbn" class="textInput" value="<%= book.isbn %>" />
                 </label>
                 <label>
                   <p>Description:</p>
-                  <input name="_description" value="<%= book._description %>" />
+                  <input name="_description" class="textInput" value="<%= book._description %>" />
                 </label>
                 <label>
                   <p>Image:</p>
-                  <input name="image_url" value="<%= book.image_url %>" />
+                  <input name="image_url" class="textInput" value="<%= book.image_url %>" />
                 </label>
                 <label>
                   <p>Price:</p>
-                  <input name="amount" value="<%= book.amount %>" />
+                  <input name="amount" class="textInput" value="<%= book.amount %>" />
                 </label>
                 <label>
                   <p>Saved Bookshelf:</p>
-                  <input name="bookshelf" value="<%= book.bookshelf %>" />
+                  <input name="bookshelf" class="textInput" value="<%= book.bookshelf %>" />
                 </label>
                 <input type="hidden" name="id" value="<%= book.id %>">
                 <button type="submit">Save Book</button>
+                <button class="cancel-update">Cancel</button>
               </form>
 
             </li>
