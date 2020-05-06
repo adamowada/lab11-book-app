@@ -7,11 +7,13 @@ const app = express();
 const superagent = require('superagent');
 const pg = require('pg');
 const client = new pg.Client(process.env.DATABASE_URL);  //add heroku database url
+const methodOverride = require('method-override');
+
 
 app.use( express.urlencoded({extended:true,}));
 app.use( express.static('./public'));
 app.set('view engine', 'ejs');
-
+app.use(methodOverride('_method'));
 
 
 
@@ -90,7 +92,7 @@ app.post('/delete/:id',(request,response) => {
   let id = request.body.id;
   const SQL = 'DELETE FROM books WHERE id=$1';
   let VALUES = [id];
-  console.log(request.body.id);
+  // console.log(request.body.id);
   client.query(SQL, VALUES)
     .then( () => {
       response.status(200).redirect('/');
@@ -101,13 +103,11 @@ app.post('/delete/:id',(request,response) => {
 });
 
 // Update book
-app.post('/update/:id',(request,response) => {
-  let id = request.body.id;
-  console.log(request.body);
-  const SQL = `
-  UPDATE books SET (author, title, isbn, image_url, _description, bookshelf, amount)
-  VALUES ($1, $2, $3, $4, $5, $6, $7)
-`;
+
+app.put('/update-book/:id', (request, response) => {
+  // const id = request.body.id;
+  console.log('The update form request.body is', request.body);
+  const SQL = 'UPDATE books SET author=$1, title=$2, isbn=$3, image_url=$4, _description=$5, bookshelf=$6, amount=$7 WHERE id=$8';
   const VALUES = [
     request.body.author,
     request.body.title,
@@ -115,11 +115,12 @@ app.post('/update/:id',(request,response) => {
     request.body.image_url,
     request.body._description,
     request.body.bookshelf,
-    request.body.amount
+    request.body.amount,
+    request.body.id
   ];
   client.query(SQL, VALUES)
-    .then( (results) => {
-      response.status(200).redirect(`/details/${id}`, {books:results.rows,} );
+    .then( () => {
+      response.status(200).redirect(`/`);
     })
     .catch( error => {
       console.error(error.message);

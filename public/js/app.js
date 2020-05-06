@@ -4,5 +4,5 @@ $('#update').on('click', showForm);
 
 function showForm() {
   $('#update').hide();
-  $('#update-book').fadeIn();
+  $('#update-book-form').fadeIn();
 }
