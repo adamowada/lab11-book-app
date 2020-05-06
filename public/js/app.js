@@ -10,5 +10,6 @@ function showForm() {
 $('.cancel-update').on('click', hideForm);
 
 function hideForm() {
-  $(this).parent().fadeIn();
+  $(this).parent().fadeOut();
+  $('.update').show();
 }
